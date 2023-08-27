@@ -78,37 +78,48 @@
 // document.querySelector(".closBtn").addEventListener("click",function(){
 //     closeLayer(".productsLayer")
 // })
-$(".closBtn").click(function(){
-    $(".productsLayer").hide(500);
-    document.querySelector(":not(#HDPELayer)").classList.remove("overflow-hidden");
-})
-$("#products #HDPE").click(function(){
-   $("#HDPELayer").show(500);
-   document.querySelector(":not(#HDPELayer)").classList.add("overflow-hidden");
-})
-$("#products #pvc").click(function(){
-    $("#PVCLayer").show(500);
-    document.querySelector(":not(#PVCLayer)").classList.add("overflow-hidden");
- })
- $("#products #Pergola").click(function(){
-    $("#PergolaLayer").show(500);
-    document.querySelector(":not(#PergolaLayer)").classList.add("overflow-hidden");
- })
- $("#products #Tents").click(function(){
-    $("#TentslaLayer").show(500);
-    document.querySelector(":not(#TentslaLayer)").classList.add("overflow-hidden");
- })
- $("#HDPEmaterial").click(function(){
-    $("#HDPELayer").show(500);
-    document.querySelector(":not(#HDPELayer)").classList.add("overflow-hidden");
- })
-$("#PVCmaterial").click(function(){
-    $("#PVCLayer").show(500);
-    document.querySelector(":not(#PVCLayer)").classList.add("overflow-hidden");
-})
-$("#steelMaterial").click(function(){
-    $("#steelLayer").show(500);
-    document.querySelector(":not(#steelLayer)").classList.add("overflow-hidden");
+$(document).ready(function(){
+   $("#spinner").fadeOut(2000 , function(){
+      $("#spinner").remove();
+   })
+   $("body").css("overflow","auto");
+
+   $(".closBtn").click(function(){
+      $(".productsLayer").hide(500);
+      document.querySelector(":not(#HDPELayer)").classList.remove("overflow-hidden");
+  });
+  $("#products #HDPE").click(function(){
+     $("#HDPELayer").show(500);
+     document.querySelector(":not(#HDPELayer)").classList.add("overflow-hidden");
+  });
+  $("#products #pvc").click(function(){
+      $("#PVCLayer").show(500);
+      document.querySelector(":not(#PVCLayer)").classList.add("overflow-hidden");
+   });
+   $("#products #Pergola").click(function(){
+      $("#PergolaLayer").show(500);
+      document.querySelector(":not(#PergolaLayer)").classList.add("overflow-hidden");
+   });
+   $("#products #Tents").click(function(){
+      $("#TentslaLayer").show(500);
+      document.querySelector(":not(#TentslaLayer)").classList.add("overflow-hidden");
+   });
+   
+  $(window).scroll(function(){
+     let sectionOffset = $("#aboutUs").offset().top;
+     if($(window).scrollTop() > sectionOffset)
+     {
+        $(".navbar").css("backgroundColor","rgba(0,0,0,1)");
+     }else{
+        $(".navbar").css("backgroundColor","rgba(0,0,0,0.5)");
+     }
+  });
+  
+  $("a[href^='#']").click(function(e){
+     let sectionTargetName =e.target.getAttribute('href');
+     let sectionTop = $(sectionTargetName).offset().top;
+     $("body , html").animate({scrollTop:sectionTop} , 1000);
+  })
 })
 
 
