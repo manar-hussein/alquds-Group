@@ -79,10 +79,17 @@
 //     closeLayer(".productsLayer")
 // })
 $(document).ready(function(){
-   $("#spinner").fadeOut(2000 , function(){
+   $("#spinner").fadeOut(500 , function(){
       $("#spinner").remove();
    })
    $("body").css("overflow","auto");
+
+   $("#shading").click(function(){
+      window.open("Q-Shading.html",'_self');
+   });
+   $("#steel").click(function(){
+      window.open("../AL-Quds-Steel.html",'_self');
+   })
 
    $(".closBtn").click(function(){
       $(".productsLayer").hide(500);

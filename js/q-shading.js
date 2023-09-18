@@ -1,5 +1,5 @@
 $(function(){
-    $("#spinner").fadeOut(2000 , function(){
+    $("#spinner").fadeOut(500 , function(){
         $("#spinner").remove();
      })
      $("body").css("overflow","auto");
